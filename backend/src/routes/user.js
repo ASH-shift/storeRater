@@ -13,7 +13,6 @@ function validatePassword(password) {
   return null;
 }
 
-// GET /api/user/stores
 router.get('/stores', protect, async (req, res) => {
   try {
     const { search } = req.query;
@@ -50,7 +49,6 @@ router.get('/stores', protect, async (req, res) => {
   }
 });
 
-// POST /api/user/ratings
 router.post('/ratings', protect, async (req, res) => {
   const { store_id, rating } = req.body;
   const userId = req.user.id;
@@ -79,7 +77,6 @@ router.post('/ratings', protect, async (req, res) => {
   }
 });
 
-// PUT /api/user/password
 router.put('/password', protect, async (req, res) => {
   const { currentPassword, newPassword } = req.body;
   const userId = req.user.id;

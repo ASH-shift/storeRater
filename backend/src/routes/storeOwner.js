@@ -13,7 +13,6 @@ function validatePassword(password) {
   return null;
 }
 
-// GET /api/store-owner/dashboard
 router.get('/dashboard', protect, async (req, res) => {
   try {
     const ownerId = req.user.id;
@@ -55,7 +54,6 @@ router.get('/dashboard', protect, async (req, res) => {
   }
 });
 
-// PUT /api/store-owner/password
 router.put('/password', protect, async (req, res) => {
   const { currentPassword, newPassword } = req.body;
   const userId = req.user.id;

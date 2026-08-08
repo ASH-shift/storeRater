@@ -32,7 +32,6 @@ function validateAddress(address) {
   return null;
 }
 
-// GET /api/admin/stats
 router.get('/stats', protect, async (req, res) => {
   try {
     const usersResult = await pool.query('SELECT COUNT(*) FROM users');
@@ -50,7 +49,6 @@ router.get('/stats', protect, async (req, res) => {
   }
 });
 
-// GET /api/admin/users
 router.get('/users', protect, async (req, res) => {
   try {
     const { name, email, address, role, sort } = req.query;
@@ -96,7 +94,6 @@ router.get('/users', protect, async (req, res) => {
   }
 });
 
-// GET /api/admin/users/:id
 router.get('/users/:id', protect, async (req, res) => {
   try {
     const { id } = req.params;
@@ -134,7 +131,6 @@ router.get('/users/:id', protect, async (req, res) => {
   }
 });
 
-// POST /api/admin/users
 router.post('/users', protect, async (req, res) => {
   const { name, email, password, address, role } = req.body;
 
@@ -174,7 +170,6 @@ router.post('/users', protect, async (req, res) => {
   }
 });
 
-// GET /api/admin/stores
 router.get('/stores', protect, async (req, res) => {
   try {
     const { name, email, address, sort } = req.query;
@@ -229,7 +224,6 @@ router.get('/stores', protect, async (req, res) => {
   }
 });
 
-// POST /api/admin/stores
 router.post('/stores', protect, async (req, res) => {
   const { name, email, address, owner_id } = req.body;
 
